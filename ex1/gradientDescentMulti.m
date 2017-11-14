@@ -19,10 +19,12 @@ for iter = 1:num_iters
 
 
     tmp = X * theta - y;
-    n = size(X, 2);
-    for i = 1:n
-        theta(i) = theta(i) - alpha / m * sum(tmp .* X(:, i));
-
+    %n = size(X, 2);
+    %for i = 1:n
+    %    theta(i) = theta(i) - alpha / m * sum(tmp .* X(:, i));
+    
+    %vectorization
+    theta = theta - alpha / m * (X' * tmp); 
 
     % ============================================================
 
